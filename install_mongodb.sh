@@ -1,5 +1,5 @@
 #!/bin/bash
-#mail:xuel@anchnet.com
+
 #function:auto install mongodb
 [ $(id -u) != "0" ] && echo "Error: You must be root to run this script" && exit 1
 logfile="/var/log/mongod_install.log"
