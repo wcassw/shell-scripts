@@ -1,5 +1,4 @@
 #!/bin/bash
-#auth:xuel@anchnet.com
 #backup mongodb
 
 . /etc/profile
