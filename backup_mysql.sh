@@ -1,9 +1,5 @@
 #/bin/bash
 
-#author:xuel
-#mail:xuel@51idc.com
-#data:2016/6/11
-
 DIR=/data/mysqldump/`date +%Y-%m-%d`
 MYSQLDB=cacti
 MYSQLUSR=root
