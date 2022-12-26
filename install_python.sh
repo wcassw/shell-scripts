@@ -1,5 +1,5 @@
 #!/bin/bash
-#mail:xuel@anchnet.com
+
 #function:auto install python
 sys_init() {
 [ -f /etc/init.d/functions ] && . /etc/init.d/functions
@@ -31,6 +31,10 @@ case $NUM in
 	VER=python37
 ;;
 4)
+	URL="https://www.python.org/ftp/python/3.9.0/Python-3.9.0b4.tgz"
+	VER=python39
+;;
+5)
 	echo -e "\033[41;37m You choice channel! \033[0m" && exit 0
 ;;
 *)
