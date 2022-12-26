@@ -1,5 +1,5 @@
 #!/bin/bash
-# mail  xuel@51idc.com
+
 data=`date +%Y-%M-%d" "%H:%m`
 netstat -lntup|grep 5432 && ps -ef|grep postmaster
 if [ $? -eq 0 ];then
@@ -9,16 +9,16 @@ do
 if [ "$?" != "0" ];then
 echo
  "postgresql master-slave status is error! please login check!"|mail -r 
-"xuel@51idc.com" -s "postgresql master-slave status is error" 
-xuel@51idc.com \
+"mail@email.com" -s "postgresql master-slave status is error" 
+mail@email.com \
 && echo "$data postgresql postgresql master-slave status is error!">>/var/log/postgresql-error.log
 fi
 done
 else
 echo
  "postgresql master-slave status is error! please login check!"|mail -r 
-"xuel@51idc.com" -s "postgresql master-slave status is error" 
-xuel@51idc.com \
+"mail@email.com" -s "postgresql master-slave status is error" 
+mail@email.com \
 && echo "$data postgresql postgresql master-slave status is error!">>/var/log/postgresql-error.log
 fi
 
