@@ -16,8 +16,8 @@ cat $config_file | while read ADDRESS NAME IP USER PASSWD PORT FILENAME;do
 	./back.sh $IP $USER $PASSWD $PORT $FILENAME $FTPIP $FTPUSER $FTPPWD &>/dev/null
 	if [ $? -eq 0 ];then
 		/bin/mv $backup_dir/$FILENAME $backup_dir/$ADDRESS/$NAME/$FILENAME"_"$DATE 
-		/bin/echo "BACKUP $IP SUCCESS,BACKUP_FILE $backup_dir/$ADDRESS/$NAME/$FILENAME"_"$DATE" | /bin/mail -r "service02@51idc.com" -s "$NAME 防火墙备份_成功！" $MAIL
+		/bin/echo "BACKUP $IP SUCCESS,BACKUP_FILE $backup_dir/$ADDRESS/$NAME/$FILENAME"_"$DATE" | /bin/mail -r "emailservice02@email.com" -s "$NAME xxxxx" $MAIL
 	else
-		/bin/echo "BACKUP $IP SUCCESS,BACKUP_FILE $backup_dir/$ADDRESS/$NAME/$FILENAME"_"$DATE" | /bin/mail -r "service02@51idc.com" -s "$NAME 防火墙备份_失败！" $MAIL
+		/bin/echo "BACKUP $IP SUCCESS,BACKUP_FILE $backup_dir/$ADDRESS/$NAME/$FILENAME"_"$DATE" | /bin/mail -r "emailservice02@email.com" -s "$NAME xxxxx！" $MAIL
 	fi
 done	
