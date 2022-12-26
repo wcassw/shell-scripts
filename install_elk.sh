@@ -1,6 +1,4 @@
 #!/bin/bash
-#mail:xuel@anchnet.com
-#data:2017/9/7
 #AutoInstall ELK scripts
 #Software:elasticsearch-5.4.1/logstash-5.4.1/filebeat-5.4.1/kibana-5.4.1
 clear
