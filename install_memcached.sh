@@ -1,5 +1,4 @@
 #!/bin/bash
-#mail:xuel@anchnet.com
 #function:auto install memcached
 clear
 echo "##########################################"
