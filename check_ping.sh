@@ -1,25 +1,17 @@
 #!/bin/bash
-#auth:kaliarch
 
-# ping可执行路径
+# ping
 PINGCMD=/usr/bin/ping
-# zabbix_sender可执行文件路径
 SENDCMD=/usr/bin/zabbix_sender
-# ping测主机ip地址
-CHECKHOST=baidu.com11
-# zabbix服务器ip地址
+CHECKHOST=aws.com11
 ZABBIXSERVER=43.254.55.225
-# zabbix服务器监听端口
 ZABBIXPORT=10051
-# zabbix添加这条监控主机名
 LOCALHOST=checkping_monitor
-# ping包的数量
 PAG_NUM=1
-# 添加监控项的键值
 ZAX_KEY=ping_response
 
 
-# 获取ping响应时间
+# ping
 check_ping() {
    $PINGCMD -c $PAG_NUM $CHECKHOST >/dev/null 2>&1
    if [ $? -eq 0 ];then
@@ -30,7 +22,7 @@ check_ping() {
    fi
 }
 
-# 发送数据到zabbixserver
+# zabbixserver
 send_data() {
   DATA=`check_ping`
   $SENDCMD -z $ZABBIXSERVER -s $LOCALHOST -k $ZAX_KEY -o $DATA
