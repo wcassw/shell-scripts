@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# remove ARCHIVELOG ALL COMPLETED BEFORE 'SYSDATE-7'
 oracle_env() {
     source /home/oracle/.bash_profile  
     export ORACLE_BASE=/home/oracle/app
