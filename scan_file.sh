@@ -9,32 +9,31 @@ SCAN_FILE_FAIL="/tmp/scan_$(date +%F%H%m)_fall.txt"
 SCAN_FILE_BIN="/tmp/scan_$(date +%F%H%m)_bin.txt"
 
 scan_fall_disk() {
-	echo "正在全盘扫描，请稍等！文件路径:$SCAN_FILE_FALL"
+	echo ":$SCAN_FILE_FALL"
 	find / -type f ! -path "/proc/*" -exec $SCAN_CMD \{\} \;>> $SCAN_FILE_FAIL 2>/dev/null
-	echo "扫描完成,可利用以下命令后期对文件进行校验"
+	echo " "
 	echo "$SCAN_CMD -c $SCAN_FILE_FAIL |grep -v 'OK$'"
 }
 
 scan_bin() {
-	echo "正在扫描$PATH可执行文件，请稍等，文件路径：$SCAN_FILE_BIN"
+	echo "：$SCAN_FILE_BIN"
 	for file in $SCAN_DIR
 	do
 		find $file -type f -exec $SCAN_CMD \{\} \;>> $SCAN_FILE_BIN 2>/dev/null
 	done
-	echo "扫描完成,可利用以下命令后期对文件进行校验"
+	echo " "
 	echo "$SCAN_CMD -c $SCAN_FILE_BIN |grep -v 'OK$'"
 }
 
 clear
 echo "##########################################"
 echo "#                                        #"
-echo "#        利用md5sum对文件进行校验        #"
+echo "#        d5sum.                      #"
 echo "#                                        #"
 echo "##########################################"
-echo "1: 全盘扫描"
-echo "2: bin path扫描"
+echo "1: scan_fail_disk"
+echo "2: bin path"
 echo "3: EXIT"
-# 选择扫描方式
 read -p "Please input your choice:" method
 case $method in 
 1)
