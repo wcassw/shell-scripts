@@ -1,5 +1,4 @@
 #!/bin/bash
-# auth:kaliarch
 # func:sys info check
 # version:v1.0
 # sys:centos6.x/7.x
@@ -7,15 +6,12 @@
 set -e
 [ $(id -u) -gt 0 ] && exit 1
 
-# cpu使用超过百分之多少进行限制
+# vars
 PEC_CPU=80
-
-# 限制进程使用百分之多少,如果程序为多线程，单个cpu限制为85，如果为多核心，就需要按照比例写，例如cpu为2c，像限制多线程占比80%，就写170
 LIMIT_CPU=85
-# 日志
 LOG_DIR=/var/log/cpulimit/
 
-# 超过阀值进程pid
+# pid
 PIDARG=$(ps -aux |awk -v CPU=${PEC_CPU} '{if($3 > CPU) print $2}')
 CPULIMITCMD=$(which cpulimit)
 
