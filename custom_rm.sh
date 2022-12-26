@@ -1,5 +1,5 @@
 #!/bin/bash
-# function:自定义rm命令，每天晚上定时清理
+# function:rm
 
 CMD_SCRIPTS=$HOME/.rm_scripts.sh
 TRASH_DIR=$HOME/.TRASH_DIR
@@ -22,8 +22,6 @@ sed -i "s@$(grep 'alias rm=' $BASHRC)@alias rm='bash ${CMD_SCRIPTS}'@g" $BASHRC
 source $HOME/.bashrc
 
 echo "0 0 * * * rm -rf $TRASH_DIR/*" >> $CRON_FILE
-echo "删除目录:$TRASH_DIR"
-echo "删除脚本:$CMD_SCRIPTS"
-echo "请执行:source $BASHRC 来加载文件或退出当前shell重新登录"
-
-
+echo ":$TRASH_DIR"
+echo ":$CMD_SCRIPTS"
+echo ":source $BASHRC shell"
